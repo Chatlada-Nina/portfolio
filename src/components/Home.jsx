@@ -52,7 +52,7 @@ const Home = () => {
               <i className="ri-linkedin-box-fill"></i>
             </a>
             <button className="text-white text-lg bg-[#31473A] hover:bg-[#4c6e5b] px-6 py-2 border-b-4 border-[#7C8363] hover:border-[#8f9c5f] rounded">
-              My resume
+            <a href="/chatlada-cv.pdf" target="_blank" rel="noopener noreferrer" className="your-button-class">My Resume</a>
             </button>
           </div>
         </div>
