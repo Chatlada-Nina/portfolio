@@ -28,7 +28,7 @@ const projects = [
   { id: 4,
     name: "Massage and Spa Website",
     image: project4,
-    description: "A responsive rontend web application.",
+    description: "A responsive frontend web application.",
     link: "https://chatlada-nina.github.io/serenity-relax-and-spa/"
   },
 ]
