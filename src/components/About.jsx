@@ -43,27 +43,26 @@ const About = () => {
           About Me
         </h1>
         <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-center">
-          Sawaddee-ka! 🙏 I'm a Thai woman with years of experience in service
-          and office work, refining my communication and interpersonal skills
-          along the way. For as long as I can remember, I've been fascinated by
-          the world of technology but I hesitated to step out of my comfort
-          zone—until life handed me an opportunity I could not ignore.
+        👋 Sawaddee-ka, Hej, and Hello — I’m Chatlada!
+        <br />
+        Not long ago, I made a bold, heart-led leap into tech and I’ve never looked back.
           <br />
           <br />
-          One of the biggest decisions I've ever made was moving from Thailand
-          to Sweden to start fresh in a completely new environment. It was
-          terrifying, exciting and full of possibilities. More than anything, it
-          was my chance to embrace change, explore new challenges and discover
-          what I'm truly capable of.
+          From the moment I wrote my very first line of code, something clicked. I’d found the spark. What started as curiosity quickly became a full-blown passion, and today I’m building web experiences with a mix of creativity, logic, and love for clean, purposeful design.
           <br />
           <br />
-          Now, here I am proudly graduating from Code Institute's web
-          application development program, chasing my dream and stepping into
-          the world of tech as a developer! Every day is a journey of learning,
-          where I plan, create projects and tackle new tools and concepts. Sure,
-          there are moments of frustration but the thrill of overcoming
-          obstacles, growing and evolving into the person I aspire to be...
-          makes it all worth it. That feeling is truly priceless 💙.
+          💻 I work across the stack — HTML, CSS, JavaScript, Vue.js, React, Python, Django, and PostgreSQL — and I enjoy both frontend magic and backend structure. Currently, I’m helping an NGO redesign their WordPress site to be more intuitive and impactful. I care deeply about the user’s journey and thrive when design and development meet in harmony.
+          <br />
+          <br />
+          🛠️ On top of that, I play with tools like Power BI, Microsoft 365, and even Generative AI — always exploring, always tinkering. I stay active in the tech community by volunteering at events, joining meetups, and soaking up inspiration wherever I go.
+          But most of all — I love solving problems. Whether it’s debugging a stubborn error, improving a user flow, or just making something work better, I’m all in. I bring curiosity, collaboration, and a can-do mindset to every project I touch.
+          <br />
+          <br />
+          🌱 I’m currently open to opportunities as a Web Developer (frontend, backend, or full-stack) or in IT Support. I’m excited to join a team that values learning, impact, and doing great work together.
+          <br />
+          <br />
+          Let’s build something better — together.
+          Whether you're a founder, developer, designer, or just curious — feel free to reach out and say hi.
         </p>
 
         {/* Skills Section */}
