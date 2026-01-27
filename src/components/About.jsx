@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 const skills = [
   { name: "HTML & CSS", level: 95 },
   { name: "JavaScript", level: 85 },
-  { name: "React JS", level: 80 },
+  { name: "TypeScript", level: 90 },
+  { name: "React.js", level: 80 },
+  { name: "Next.js", level: 90 },
   { name: "Python", level: 70 },
   { name: "WordPress", level: 90 },
-  { name: "Elementor Pro", level: 90 },
   { name: "UX/UI", level: 75 },
   { name: "Canva", level: 95 },
 ];
@@ -45,20 +46,13 @@ const About = () => {
         <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-center">
         👋 Sawaddee-ka, Hej, and Hello — I’m Chatlada!
         <br />
-        Not long ago, I made a bold, heart-led leap into tech and I’ve never looked back.
+        As a Web Developer, I spend my days at the intersection of logic and creativity. My transition from visual merchandising to Full-stack development wasn't just a career change, it was an evolution of my passion for design and human-centric solutions.
           <br />
           <br />
-          From the moment I wrote my very first line of code, something clicked. I’d found the spark. What started as curiosity quickly became a full-blown passion, and today I’m building web experiences with a mix of creativity, logic, and love for clean, purposeful design.
+          Currently, I’m interning at Prodeff AB and deep-diving into the world of Next.js, Supabase and AI agents. I'm responsible for designing, developing and maintaining scalable web applications using modern frontend and backend technologies. My role involves collaborate with stakeholders to define requirements and deliver feature-driven solutions, building user-centric interfaces and ensuring performance, security and maintainability across applications. 
           <br />
           <br />
-          💻 I work across the stack — HTML, CSS, JavaScript, Vue.js, React, Python, Django, and PostgreSQL — and I enjoy both frontend magic and backend structure. Currently, I’m helping an NGO redesign their WordPress site to be more intuitive and impactful. I care deeply about the user’s journey and thrive when design and development meet in harmony.
-          <br />
-          <br />
-          🛠️ On top of that, I play with tools like Power BI, Microsoft 365, and even Generative AI — always exploring, always tinkering. I stay active in the tech community by volunteering at events, joining meetups, and soaking up inspiration wherever I go.
-          But most of all — I love solving problems. Whether it’s debugging a stubborn error, improving a user flow, or just making something work better, I’m all in. I bring curiosity, collaboration, and a can-do mindset to every project I touch.
-          <br />
-          <br />
-          🌱 I’m currently open to opportunities as a Web Developer (frontend, backend, or full-stack) or in IT Support. I’m excited to join a team that values learning, impact, and doing great work together.
+          💻 I really enjoy my job. There is no better feeling than seeing someone use a tool I built to make their workday easier. I believe the future of web development lies in the seamless integration of AI and intuitive design. 
           <br />
           <br />
           Let’s build something better — together.

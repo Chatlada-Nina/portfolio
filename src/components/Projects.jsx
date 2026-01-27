@@ -3,6 +3,8 @@ import project1 from '../assets/project-1.png'
 import project2 from '../assets/project-2.png'
 import project3 from '../assets/project-3.png'
 import project4 from '../assets/project-4.png'
+import project5 from '../assets/project-5.png'
+import project6 from '../assets/project-6.png'
 
 
 const projects = [
@@ -30,6 +32,17 @@ const projects = [
     image: project4,
     description: "A responsive frontend web application.",
     link: "https://chatlada-nina.github.io/serenity-relax-and-spa/"
+  },
+  { id: 5,
+    name: "Recipely - Recipe Note App",
+    image: project5,
+    description: "A beautiful responsive Recipe Note application built with Next.js and store locally in the browser(LocalStorage).",
+    link: "https://recipely-psexo956r-chatlada-ninas-projects.vercel.app"
+  },{ id: 6,
+    name: "Think You Know Thailand? - Quiz App",
+    image: project6,
+    description: "An interactive and playful quiz app built with React, Vite, and Tailwind CSS",
+    link: "https://chatlada-nina.github.io/thailand-quiz-app/"
   },
 ]
 
