@@ -1,84 +1,74 @@
-import React from 'react'
-import project1 from '../assets/project-1.png'
-import project2 from '../assets/project-2.png'
-import project3 from '../assets/project-3.png'
-import project4 from '../assets/project-4.png'
-import project5 from '../assets/project-5.png'
-import project6 from '../assets/project-6.png'
-
-
-const projects = [
-  { 
-    id: 1,
-    name: "Pizzeria Restaurant Website",
-    image: project1,
-    description: "A full-stack restaurant order online.",
-    link: "https://pizza-hemma-4a540b28342f.herokuapp.com/"
-  },
-  { id: 2,
-    name: "Blog Community Platform",
-    image: project2,
-    description: "A community platform with Django & Cloudinary storage.",
-    link: "https://bkk-coffee-corner-f07d5b0b8233.herokuapp.com/"
-  },
-  { id: 3,
-    name: "The Guessword Game",
-    image: project3,
-    description: "An interactive game using JavaScript.",
-    link: "https://chatlada-nina.github.io/TheGuessWordGame/"
-  },
-  { id: 4,
-    name: "Massage and Spa Website",
-    image: project4,
-    description: "A responsive frontend web application.",
-    link: "https://chatlada-nina.github.io/serenity-relax-and-spa/"
-  },
-  { id: 5,
-    name: "Recipely - Recipe Note App",
-    image: project5,
-    description: "A beautiful responsive Recipe Note application built with Next.js and store locally in the browser(LocalStorage).",
-    link: "https://recipely-psexo956r-chatlada-ninas-projects.vercel.app"
-  },{ id: 6,
-    name: "Think You Know Thailand? - Quiz App",
-    image: project6,
-    description: "An interactive and playful quiz app built with React, Vite, and Tailwind CSS",
-    link: "https://chatlada-nina.github.io/thailand-quiz-app/"
-  },
-]
+import React from "react";
+import ProjectCard from "./ProjectCard";
+import { featuredProjects, personalProjects } from "../data/portfolio";
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-white w-full px-6 py-12 scroll-mt-48">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl text-[#4c6e5b] font-bold drop-shadow-lg text-center pb-20">Projects</h2>
-
-        {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-        {projects.map((project) => (
-          <a 
-            key={project.id} 
-            href={project.link} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="block bg-[#31473A] rounded-lg outline-[#31473A] outline-4 outline-offset-2 outline-solid hover:bg-[#4c6e5b] hover:outline-[#4c6e5b]"
+    <section id="projects" className="bg-[#EDF4F2] w-full px-6 py-16 scroll-mt-48">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl text-[#4c6e5b] font-bold drop-shadow-lg text-center">
+          Projects
+        </h2>
+        <p className="text-center text-base sm:text-lg text-[#4c6e5b]/90 max-w-2xl mx-auto mt-4 mb-14">
+          Production work from Prodeff alongside personal builds from my{" "}
+          <a
+            href="https://github.com/Chatlada-Nina"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#31473A] underline underline-offset-4 hover:text-[#8f9c5f]"
           >
-            <div className="overflow-hidden rounded-t-lg">
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="text-xl font-semibold text-white">{project.name}</h3>
-              <p className="text-md text-white mt-2">{project.description}</p>
-            </div>
+            GitHub
           </a>
-        ))}
-      </div>
+          .
+        </p>
+
+        <div className="mb-14">
+          <h3 className="text-2xl font-bold text-[#31473A] mb-6 flex items-center gap-3">
+            <span className="inline-block w-8 h-1 bg-[#8f9c5f] rounded" aria-hidden="true" />
+            Professional work
+          </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                variant="featured"
+                name={project.name}
+                subtitle={project.subtitle}
+                description={project.description}
+                link={project.link}
+                image={project.image}
+                tags={project.tags}
+                role={project.role}
+                accent={project.accent}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-2xl font-bold text-[#31473A] mb-6 flex items-center gap-3">
+            <span className="inline-block w-8 h-1 bg-[#8f9c5f] rounded" aria-hidden="true" />
+            Personal & learning projects
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {personalProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                variant="personal"
+                name={project.name}
+                description={project.description}
+                link={project.link}
+                github={project.github}
+                image={project.image}
+                accent={project.accent}
+                tags={project.tags}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

@@ -3,6 +3,13 @@ import emailjs from "emailjs-com";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 
+/** Limits abuse-sized payloads; aligns with HTML maxLength on fields. */
+const FIELD_LIMITS = {
+  name: 80,
+  email: 254,
+  message: 2000,
+};
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,18 +28,34 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name || !email || !message) {
+      toast.error("Please fill in all fields.");
+      return;
+    }
+
     setLoading(true);
+
+    // Use Contact Notification (to you), NOT Auto-Reply (template_235oujs).
+    // In EmailJS: open template_suzc9mx → Auto-Reply tab → link template_235oujs.
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message,
+      name,
+      title: `Portfolio message from ${name.slice(0, 60)}`,
+    };
 
     emailjs
       .send(
-        "service_1rjoeow",     // Replace with your actual service ID
-        "template_235oujs",    // Replace with your template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        "zZcUAgg3FDZoSwFMH"       // Replace with your public key
+        "service_1rjoeow",
+        "template_suzc9mx",
+        templateParams,
+        "zZcUAgg3FDZoSwFMH"
       )
       .then(() => {
         toast.success("Message sent successfully! 🎉");
@@ -58,9 +81,12 @@ const Contact = () => {
               Name
             </label>
             <input
+              id="name"
               type="text"
               name="name"
               required
+              maxLength={FIELD_LIMITS.name}
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               className="w-full p-3 border border-[#6b8677a0] rounded-lg focus:outline-none focus:border-[#4c6e5b]"
@@ -72,9 +98,12 @@ const Contact = () => {
               Email
             </label>
             <input
+              id="email"
               type="email"
               name="email"
               required
+              maxLength={FIELD_LIMITS.email}
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               className="w-full p-3 border border-[#6b8677a0] rounded-lg focus:outline-none focus:border-[#4c6e5b]"
@@ -86,14 +115,19 @@ const Contact = () => {
               Message
             </label>
             <textarea
+              id="message"
               name="message"
               rows="5"
               required
+              maxLength={FIELD_LIMITS.message}
               value={formData.message}
               onChange={handleChange}
               className="w-full p-3 border border-[#6b8677a0] rounded-lg focus:outline-none focus:border-[#4c6e5b]"
               placeholder="Write your message here..."
-            ></textarea>
+            />
+            <p className="text-xs text-[#6b8677] mt-1 text-right" aria-live="polite">
+              {formData.message.length}/{FIELD_LIMITS.message}
+            </p>
           </div>
           <div className="text-center">
             <button

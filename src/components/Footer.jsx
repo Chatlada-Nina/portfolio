@@ -1,32 +1,38 @@
-import React from 'react'
+import React from "react";
+import { socialLinks } from "../data/portfolio";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-[#31473A] py-6">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
-        <p className="text-sm">
-          © {new Date().getFullYear()} Chatlada J. All rights reserved.
+    <footer className="bg-white text-[#31473A] py-8 border-t border-[#EDF4F2]">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p className="text-sm text-center sm:text-left">
+          © {new Date().getFullYear()} Chatlada J. | Web Developer
         </p>
-        <div className="flex space-x-4 mt-4 sm:mt-0">
+        <div className="flex gap-5 text-2xl">
           <a
-            href="https://github.com/Chatlada-Nina"
+            href={socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#8f9c5f] transition duration-300"
-          ><i className="ri-github-fill"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/chatlada-nina/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#8f9c5f] transition duration-300"
+            className="hover:text-[#8f9c5f] transition-colors"
+            aria-label="GitHub"
           >
-            <i className="ri-linkedin-box-fill"></i>
+            <i className="ri-github-fill" aria-hidden="true" />
           </a>
           <a
-            href="mailto:chatladanine@gmail.com"
-            className="hover:text-[#8f9c5f] transition duration-300"
-          ><i class="ri-mail-fill"></i>
+            href={socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#8f9c5f] transition-colors"
+            aria-label="LinkedIn"
+          >
+            <i className="ri-linkedin-box-fill" aria-hidden="true" />
+          </a>
+          <a
+            href={socialLinks.email}
+            className="hover:text-[#8f9c5f] transition-colors"
+            aria-label="Email"
+          >
+            <i className="ri-mail-fill" aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -34,4 +40,4 @@ const Footer = () => {
   );
 };
 
-export default Footer
+export default Footer;

@@ -1,90 +1,90 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import {motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
+import { navLinks } from "../data/portfolio";
+
+const linkClass =
+  "text-[#31473A] hover:text-[#8f9c5f] transition-colors font-bold";
+const contactClass =
+  "text-white bg-[#31473A] hover:bg-[#4c6e5b] px-6 py-2 border-b-4 border-[#7C8363] hover:border-[#8f9c5f] rounded transition-colors font-bold";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   const mobileMenuVariants = {
-    hidden: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 0.3 },
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 },
-    },
-    exit: {
-      opacity: 0,
-      y: -10,
-      transition: { duration: 0.2 },
-    },
+    hidden: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+    exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
   };
 
   return (
-    <nav className="w-full px-6 py-4 flex justify-between items-center flex-wrap bg-white shadow-md">
-      <div className="flex items-center flex-shrink-0">
-        <img src={logo} alt="logo" className="w-48 sm:w-60" />
-      </div>
+    <nav className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center flex-wrap">
+      <a href="#home" className="flex items-center flex-shrink-0" aria-label="Home">
+        <img src={logo} alt="Chatlada portfolio logo" className="w-48 sm:w-60" />
+      </a>
 
-      {/* Mobile Menu Button */}
       <div className="block lg:hidden">
-        <button onClick={toggleMenu} className="flex items-center px-3 py-2 text-3xl text-[#31473A] focus:outline-none">
-          {isOpen ? (
-            <i className="ri-close-line"></i> // Close icon
-          ) : (
-            <i className="ri-menu-3-line"></i> // Menu icon
-          )}
+        <button
+          type="button"
+          onClick={toggleMenu}
+          className="flex items-center px-3 py-2 text-3xl text-[#31473A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8f9c5f] rounded"
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          <i
+            className={isOpen ? "ri-close-line" : "ri-menu-3-line"}
+            aria-hidden="true"
+          />
         </button>
       </div>
 
-      {/* Desktop Nav Links */}
-      <div className="hidden lg:flex lg:items-center lg:space-x-6 text-lg font-bold text-grey-800">
-        <a href="#home" className="text-[#31473A] hover:text-[#8f9c5f]">Home</a>
-        <a href="#about" className="text-[#31473A] hover:text-[#8f9c5f]">About</a>
-        <a href="#projects" className="text-[#31473A] hover:text-[#8f9c5f]">Projects</a>
-        <a
-          href="#contact"
-          className="text-white bg-[#31473A] hover:bg-[#4c6e5b] px-6 py-2 border-b-4 border-[#7C8363] hover:border-[#8f9c5f] rounded"
-        >
-          Contact
-        </a>
+      <div className="hidden lg:flex lg:items-center lg:gap-12 text-lg">
+        {navLinks.map((link) =>
+          link.href === "#contact" ? (
+            <a key={link.href} href={link.href} className={contactClass}>
+              {link.label}
+            </a>
+          ) : (
+            <a key={link.href} href={link.href} className={linkClass}>
+              {link.label}
+            </a>
+          )
+        )}
       </div>
 
-      {/* Animated Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-nav"
             key="mobile-menu"
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={mobileMenuVariants}
-            className="w-full flex flex-col items-center bg-white mt-4 lg:hidden rounded-md shadow-md py-4 gap-4 z-40"
+            className="w-full flex flex-col items-center bg-white mt-4 lg:hidden rounded-md shadow-md py-4 gap-4"
           >
-            <a href="#home" onClick={toggleMenu} className="text-black font-bold hover:text-[#8f9c5f]">
-              Home
-            </a>
-            <a href="#about" onClick={toggleMenu} className="text-black font-bold hover:text-[#8f9c5f]">
-              About
-            </a>
-            <a href="#projects" onClick={toggleMenu} className="text-black font-bold hover:text-[#8f9c5f]">
-              Projects
-            </a>
-            <a
-              href="#contact"
-              onClick={toggleMenu}
-              className="text-white bg-[#31473A] hover:bg-[#4c6e5b] px-6 py-2 border-b-4 border-[#7C8363] hover:border-[#8f9c5f] rounded"
-            >
-              Contact
-            </a>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className={
+                  link.href === "#contact"
+                    ? contactClass
+                    : "text-[#31473A] font-bold hover:text-[#8f9c5f]"
+                }
+              >
+                {link.label}
+              </a>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </nav>
   );
 };
